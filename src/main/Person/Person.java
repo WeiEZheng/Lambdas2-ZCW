@@ -13,16 +13,24 @@ public class Person {
     Sex gender;
     String emailAddress;
 
+    public Person(String name, LocalDate birthday, Sex gender, String emailAddress) {
+        this.name = name;
+        this.birthday = birthday;
+        this.gender = gender;
+        this.emailAddress = emailAddress;
+    }
+
     public int getAge() {
         Period period = Period.between(birthday, LocalDate.now());
         return period.getYears();
     }
 
-    public void printPerson() {
+    public String printPerson() {
         String print = "Name: "+name+
                 "\nBirthdate: "+birthday.toString()+
                 "\nGender: "+gender+
-                "\nEmail Adddress: "+emailAddress;
-        System.out.println(print);
+                "\nEmail Adddress: "+emailAddress+
+                "\n---------";
+        return print;
     }
 }
